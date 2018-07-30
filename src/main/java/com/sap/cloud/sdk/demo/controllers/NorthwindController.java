@@ -1,4 +1,4 @@
-package com.sap.cloud.sdk.demo;
+package com.sap.cloud.sdk.demo.controllers;
 
 import org.slf4j.Logger;
 import org.springframework.http.ResponseEntity;
@@ -15,7 +15,7 @@ import java.util.Map;
 import com.sap.cloud.sdk.cloudplatform.logging.CloudLoggerFactory;
 import com.sap.cloud.sdk.odatav2.connectivity.ODataException;
 import com.sap.cloud.sdk.s4hana.connectivity.ErpConfigContext;
-
+import com.sap.cloud.sdk.demo.command.GetNorthwindEmployeesCommand;
 import com.sap.cloud.sdk.demo.model.Employee;
 
 @RestController

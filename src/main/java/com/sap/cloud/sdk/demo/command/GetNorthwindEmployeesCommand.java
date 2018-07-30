@@ -1,4 +1,4 @@
-package com.sap.cloud.sdk.demo;
+package com.sap.cloud.sdk.demo.command;
 
 import com.sap.cloud.sdk.demo.model.Employee;
 import com.sap.cloud.sdk.frameworks.hystrix.HystrixUtil;
