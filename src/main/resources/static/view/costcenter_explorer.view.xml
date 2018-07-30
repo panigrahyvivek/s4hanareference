@@ -1,0 +1,42 @@
+<mvc:View controllerName="com.sap.s4hana.sdk.demo.ui.s4hana_explorer.controller.costcenter_explorer"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+	<App id="idAppControl">
+		<pages>
+			<Page title="{i18n>title}">
+				<content>
+					<Table id="idCostCenterTable" inset="false" items="{ path: '/'}">
+						<headerToolbar>
+							<Toolbar>
+								<content>
+									<Title text="Cost Centers" level="H2"/>
+									<ToolbarSpacer/>
+									<!--<ToggleButton  text="Sticky Column Headers" press="onToggleStickyColHdr"/>-->
+								</content>
+							</Toolbar>
+						</headerToolbar>
+						<columns>
+							<Column width="12em">
+								<Text text="Cost Center"/>
+							</Column>
+							<Column width="12em" minScreenWidth="Tablet" demandPopin="true">
+								<Text text="Company Code"/>
+							</Column>
+							<Column width="12em" minScreenWidth="Desktop" demandPopin="true">
+								<Text text="Category"/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem>
+								<cells>
+									<ObjectIdentifier title="{costCenter}" text="{ProductId}"/>
+									<Text text="{companyCode}"/>
+									<Text text="{category}"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

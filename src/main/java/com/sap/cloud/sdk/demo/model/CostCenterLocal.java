@@ -13,11 +13,11 @@ public class CostCenterLocal{
 	@ElementName( "CostCenter" )
 	private String costCenter;
 	
-	@ElementName( "CostCenterID" )
-	private String costCenterId;
+	/*@ElementName( "CostCenterID" )
+	private String costCenterId;*/
 	
-	@ElementName( "Status" )
-	private String status;
+	/*@ElementName( "Status" )
+	private String status;*/
 	
 	@ElementName( "CompanyCode" )
 	private String companyCode;
@@ -25,8 +25,8 @@ public class CostCenterLocal{
 	@ElementName( "CostCenterCategory" )
 	private String category;
 	
-	@ElementName( "CostCenterDescription" )
-	private String costCenterDescription;
+	/*@ElementName( "CostCenterDescription" )
+	private String costCenterDescription;*/
 	
 
 }

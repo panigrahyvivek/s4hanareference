@@ -12,8 +12,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 import com.sap.cloud.sdk.cloudplatform.logging.CloudLoggerFactory;
+import com.sap.cloud.sdk.demo.command.GetCostCenterCommand;
 import com.sap.cloud.sdk.demo.model.CostCenterLocal;
 import com.sap.cloud.sdk.odatav2.connectivity.ODataException;
 import com.sap.cloud.sdk.odatav2.connectivity.ODataQuery;
@@ -21,6 +23,7 @@ import com.sap.cloud.sdk.odatav2.connectivity.ODataQueryBuilder;
 import com.sap.cloud.sdk.odatav2.connectivity.ODataQueryResult;
 import com.sap.cloud.sdk.s4hana.connectivity.ErpConfigContext;
 import com.sap.cloud.sdk.s4hana.datamodel.odata.helper.Order;
+import com.sap.cloud.sdk.s4hana.datamodel.odata.namespaces.businesspartner.BusinessPartner;
 import com.sap.cloud.sdk.s4hana.datamodel.odata.namespaces.costcenter.CostCenter;
 import com.sap.cloud.sdk.s4hana.datamodel.odata.namespaces.purchaseorder.PurchaseOrder;
 import com.sap.cloud.sdk.s4hana.datamodel.odata.services.DefaultCostCenterService;
@@ -61,25 +64,11 @@ public class CostCenterController{
 
 
     @RequestMapping("/s4cloud/vdm/costcenters")
-    protected void getCostCenters(final HttpServletRequest request, final HttpServletResponse response)
-            throws ServletException, IOException {
-        try {
-        	String destinationName = "s4cloud";
-    		final ErpConfigContext configContext = new ErpConfigContext(destinationName); 
-        	
-            final List<CostCenter> costCenters =
-	                    new DefaultCostCenterService()
-	                            .getAllCostCenter()
-	                            .select(CostCenter.COMPANY_CODE)
-	                            .orderBy(CostCenter.BUSINESS_AREA, Order.ASC)
-	                            .execute(configContext);
-
-            response.getWriter().write(new Gson().toJson(costCenters));
-
-        } catch (final ODataException e) {
-        	logger.error("BLA:" + e.getCause().getMessage(), e.getCause());
-            response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-            response.getWriter().write(e.getMessage());
-        }
+    protected List<BusinessPartner> getCostCenters(final HttpServletRequest request, final HttpServletResponse response)
+            throws ServletException, IOException, ODataException {
+        final ErpConfigContext config = new ErpConfigContext("s4cloud");
+		final List<BusinessPartner> costcenters = new GetCostCenterCommand(config,null).execute();
+		
+		return costcenters;
     }
 }
