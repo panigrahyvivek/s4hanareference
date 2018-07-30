@@ -8,7 +8,7 @@ import lombok.Data;
 
 @Data
 @Component
-public class CostCenter{
+public class CostCenterLocal{
 	
 	@ElementName( "CostCenter" )
 	private String costCenter;

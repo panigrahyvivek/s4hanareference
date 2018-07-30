@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.util.List;
 
 import com.sap.cloud.sdk.cloudplatform.logging.CloudLoggerFactory;
+import com.sap.cloud.sdk.demo.model.CostCenterLocal;
 import com.sap.cloud.sdk.odatav2.connectivity.ODataException;
 import com.sap.cloud.sdk.odatav2.connectivity.ODataQuery;
 import com.sap.cloud.sdk.odatav2.connectivity.ODataQueryBuilder;
@@ -35,7 +36,7 @@ public class CostCenterController{
     
     
     @RequestMapping("/s4cloud/costcenters")
-    protected List<CostCenter> getS4CostCenters( final HttpServletRequest request, final HttpServletResponse response )
+    protected List<CostCenterLocal> getS4CostCenters( final HttpServletRequest request, final HttpServletResponse response )
         throws IOException, ODataException
     {
         logger.info("Fetching costcenters from S4HANA Cloud - API Hub");
@@ -55,7 +56,7 @@ public class CostCenterController{
 		
 		ODataQueryResult result = query.execute(configContext);
 		
-		return result.asList(CostCenter.class);
+		return result.asList(CostCenterLocal.class);
     }
 
 
@@ -63,7 +64,7 @@ public class CostCenterController{
     protected void getCostCenters(final HttpServletRequest request, final HttpServletResponse response)
             throws ServletException, IOException {
         try {
-        	String destinationName = "ErpQueryEndpoint";
+        	String destinationName = "s4cloud";
     		final ErpConfigContext configContext = new ErpConfigContext(destinationName); 
         	
             final List<CostCenter> costCenters =
@@ -73,7 +74,6 @@ public class CostCenterController{
 	                            .orderBy(CostCenter.BUSINESS_AREA, Order.ASC)
 	                            .execute(configContext);
 
-            response.setContentType("application/json");
             response.getWriter().write(new Gson().toJson(costCenters));
 
         } catch (final ODataException e) {

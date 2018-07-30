@@ -13,7 +13,8 @@ applications:
     SET_LOGGING_LEVEL: '{ROOT: INFO, com.sap.cloud.sdk: DEBUG}'
     destinations: '[
           {name: "ErpQueryEndpoint", url: "https://sandbox.api.sap.com", properties: [{key: "TrustAll", value: "true"},{key: "apikey", value: "7PGAIoLeZfJzcTX1Dyt9ZpEu6bHxm0Ch"}]},
-          {name: "northwind", url: "https://services.odata.org/V2/Northwind/Northwind.svc"}
+          {name: "northwind", url: "https://services.odata.org/V2/Northwind/Northwind.svc"},
+          {name: "s4cloud", url: "https://my300194.s4hana.ondemand.com", properties: [{key: "TrustAll", value: "true"}]}
         ]'
 #  services:
 #  - my-application-logs
