@@ -4,10 +4,11 @@
 
 	<modelVersion>4.0.0</modelVersion>
 
-	<name>s4hanareference_cf - Application</name>
-	<description>s4hanareference_cf - Application</description>
+	<name>s4hanareference - Application</name>
+	<description>s4hanareference - Application</description>
+	<packaging>war</packaging>
 
-	<artifactId>s4hanareference_cf-application</artifactId>
+	<artifactId>s4hanareference</artifactId>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -15,22 +16,17 @@
 		<version>2.0.3.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<!-- 
-	<parent>
-		<groupId>com.sap.cloud.sdk.demo</groupId>
-		<artifactId>s4hanareference_cf</artifactId>
-		<version>1.0-SNAPSHOT</version>
-	</parent>
- -->
+	<!-- <parent> <groupId>com.sap.cloud.sdk.demo</groupId> <artifactId>s4hanareference_cf</artifactId> 
+		<version>1.0-SNAPSHOT</version> </parent> -->
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
-                <groupId>com.sap.cloud.s4hana</groupId>
-                <artifactId>sdk-bom</artifactId>
-                <version>2.1.2</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
+				<groupId>com.sap.cloud.s4hana</groupId>
+				<artifactId>sdk-bom</artifactId>
+				<version>2.1.2</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
@@ -60,6 +56,15 @@
 			<artifactId>spring-webmvc</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-actuator</artifactId>
 		</dependency>
@@ -76,12 +81,8 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<!-- logging -->
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-			<scope>compile</scope>
-		</dependency>
+
+		
 	</dependencies>
 
 	<build>
@@ -94,4 +95,5 @@
 		</plugins>
 	</build>
 
+	
 </project>

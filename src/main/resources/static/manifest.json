@@ -39,7 +39,7 @@
 
 	"sap.ui5": {
 		"rootView": {
-			"viewName": "com.sap.s4hana.sdk.demo.ui.s4hana_explorer.view.costcenter_explorer",
+			"viewName": "com.sap.s4hana.sdk.demo.ui.s4hana_explorer.view.salesorder_explorer",
 			"type": "XML"
 		},
 		"dependencies": {
@@ -74,7 +74,7 @@
 				"async": true,
 				"viewPath": "com.sap.s4hana.sdk.demo.ui.s4hana_explorer.view",
 				"controlAggregation": "pages",
-				"controlId": "idAppControl",
+				"controlId": "idAppControl2",
 				"clearControlAggregation": false
 			},
 			"routes": [{

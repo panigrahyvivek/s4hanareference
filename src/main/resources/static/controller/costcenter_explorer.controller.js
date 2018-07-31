@@ -7,8 +7,8 @@ sap.ui.define([
 
 		onInit: function(){
 			var costCenterModel = new sap.ui.model.json.JSONModel("/s4cloud/costcenters", null, false);
-			
 			this.getView().setModel(costCenterModel);
+			
 		}
 	});
 });

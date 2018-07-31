@@ -1,0 +1,59 @@
+<mvc:View controllerName="com.sap.s4hana.sdk.demo.ui.s4hana_explorer.controller.salesorder_explorer"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+	<App id="idAppControl2">
+		<pages>
+			<Page title="{i18n>title}">
+				<content>
+					<Table id="idSalesOrderTable" inset="false" items="{ path: '/'}">
+						<headerToolbar>
+							<Toolbar>
+								<content>
+									<Title text="Sales Orders" level="H2"/>
+									<ToolbarSpacer/>
+									<!--<ToggleButton  text="Sticky Column Headers" press="onToggleStickyColHdr"/>-->
+								</content>
+							</Toolbar>
+						</headerToolbar>
+						<columns>
+							<Column width="12em">
+								<Text text="Sales Order"/>
+							</Column>
+							<Column width="12em" minScreenWidth="Tablet" demandPopin="true">
+								<Text text="Sales Order Type"/>
+							</Column>
+							<Column width="12em" minScreenWidth="Desktop" demandPopin="true">
+								<Text text="Sales Organization"/>
+							</Column>
+							<Column width="12em" minScreenWidth="Desktop" demandPopin="true">
+								<Text text="Total Amount"/>
+							</Column>
+							<Column width="12em" minScreenWidth="Desktop" demandPopin="true">
+								<Text text="Requested Delivery Date"/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem>
+								<cells>
+									<ObjectIdentifier title="{salesOrder}"/>
+									<Text text="{salesOrderType}"/>
+									<Text text="{salesOrganization}"/>
+									<Text text="{totalNetAmount}"/>
+									<DatePicker value="{requestDeliveryDate}" valueFormat="yyyy-MM-dd"
+										displayFormat="long" secondaryCalendarType="Gregorian" change="handleChange" />
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</content>
+				<footer>
+					<Bar>
+						<contentRight>
+							<Button text="Submit" press="onSubmitPress"></Button>
+							<Button text="Cancel" press="onCancelPress"></Button>
+						</contentRight>
+					</Bar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
