@@ -1,6 +1,8 @@
 package com.sap.cloud.sdk.demo.command;
 
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -44,7 +46,12 @@ public class GetSalesOrderCommand extends ErpCommand<List<SalesOrderLocal>>{
 			        .withEntity("/s4hanacloud/sap/opu/odata/sap/API_SALES_ORDER_SRV",
 			                "A_SalesOrder")
 			        .withHeader("apikey", "7PGAIoLeZfJzcTX1Dyt9ZpEu6bHxm0Ch", true)
-			        .select("SalesOrder", "SalesOrderType", "SalesOrganization","TotalNetAmount", "RequestedDeliveryDate")
+			        .select(SalesOrder.SALES_ORDER.getFieldName(), 
+			        		SalesOrder.SALES_ORDER_TYPE.getFieldName(),
+			        		SalesOrder.SALES_ORGANIZATION.getFieldName(),
+			        		SalesOrder.TOTAL_NET_AMOUNT.getFieldName(),
+			        		SalesOrder.REQUESTED_DELIVERY_DATE.getFieldName()
+			        		)
 			        .top(10)
 			        .build();
 			
@@ -61,6 +68,12 @@ public class GetSalesOrderCommand extends ErpCommand<List<SalesOrderLocal>>{
 	@Override
     protected List<SalesOrderLocal> getFallback() {
         logger.warn("Fallback called because of exception:", getExecutionException());
-        return Collections.emptyList();
+        List<SalesOrderLocal> salesordermock = new ArrayList<SalesOrderLocal>();
+        
+        SalesOrderLocal entry = new SalesOrderLocal("1", "OR_Mock", "1710_Mock", "60", new Date());
+        salesordermock.add(entry);
+        
+        
+        return salesordermock;
     }
 }

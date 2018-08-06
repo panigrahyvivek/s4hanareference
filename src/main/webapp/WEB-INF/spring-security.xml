@@ -10,7 +10,7 @@
         http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
 
-    <sec:http pattern="/**" create-session="never"
+    <sec:http pattern="/hello/hello/**" create-session="never"
               entry-point-ref="oauthAuthenticationEntryPoint"
               access-decision-manager-ref="accessDecisionManager"
               authentication-manager-ref="authenticationManager"
@@ -22,7 +22,7 @@
 
         <!-- Example: Check only authentication on a resource -->
 
-        <sec:intercept-url pattern="/**" access="isAuthenticated()" method="GET" />
+        <sec:intercept-url pattern="/hello/hello/**" access="isAuthenticated()" method="GET" />
 
         <sec:custom-filter ref="resourceServerFilter" before="PRE_AUTH_FILTER" />
         <sec:access-denied-handler ref="oauthAccessDeniedHandler" />

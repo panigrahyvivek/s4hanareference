@@ -12,6 +12,14 @@ import lombok.Data;
 @Component
 public class SalesOrderLocal{
 	
+	public SalesOrderLocal(String so, String stype, String sorg, String tn, Date rd){
+		this.salesOrder = so;
+		this.salesOrderType = stype;
+		this.salesOrganization = sorg;
+		this.totalNetAmount = tn;
+		this.requestDeliveryDate = rd;
+	}
+	
 	@ElementName( "SalesOrder" )
 	private String salesOrder;
 	

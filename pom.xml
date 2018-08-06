@@ -35,7 +35,7 @@
 		<!-- SDK dependencies -->
 		<dependency>
 			<groupId>com.sap.cloud.s4hana.cloudplatform</groupId>
-			<artifactId>scp-cf</artifactId>
+			<artifactId>scp-neo</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>com.sap.cloud.s4hana</groupId>
