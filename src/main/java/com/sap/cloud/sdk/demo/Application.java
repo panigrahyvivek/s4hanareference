@@ -10,7 +10,7 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 @ServletComponentScan({"com.sap.cloud.sdk"})
 @SpringBootApplication
 
-public class Application extends SpringBootServletInitializer{
+public class Application{
 	
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);

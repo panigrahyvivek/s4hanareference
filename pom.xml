@@ -6,7 +6,7 @@
 
 	<name>s4hanareference - Application</name>
 	<description>s4hanareference - Application</description>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 
 	<artifactId>s4hanareference</artifactId>
 
@@ -35,7 +35,7 @@
 		<!-- SDK dependencies -->
 		<dependency>
 			<groupId>com.sap.cloud.s4hana.cloudplatform</groupId>
-			<artifactId>scp-neo</artifactId>
+			<artifactId>scp-cf</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>com.sap.cloud.s4hana</groupId>
